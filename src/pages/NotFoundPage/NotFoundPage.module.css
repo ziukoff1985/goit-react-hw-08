@@ -1,0 +1,44 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.gif {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.content .mainHeading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.message {
+  color: white;
+}
+
+.back_link {
+  display: flex;
+  font-size: 24px;
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: orangered;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: fit-content;
+  margin: 30px auto;
+  text-decoration: none;
+}

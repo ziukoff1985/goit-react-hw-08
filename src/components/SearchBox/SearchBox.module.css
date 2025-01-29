@@ -38,7 +38,7 @@
 }
 
 .inputWrap::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -53,4 +53,10 @@
 .inputWrap:hover::before,
 .inputWrap:focus-within::before {
   transform: translateY(-100%); /* Піднімає шторку повністю */
+}
+
+@media (max-width: 768px) {
+  .inputWrap {
+    max-width: 90%;
+  }
 }
