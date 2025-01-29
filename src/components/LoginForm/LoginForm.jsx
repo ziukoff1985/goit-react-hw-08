@@ -1,17 +1,19 @@
-// import { Button } from '@mui/material';
 import { Field, Form, Formik } from 'formik';
-// import { useDispatch } from 'react-redux';
-// import { logIn } from '../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
 import s from './LoginForm.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { logInThunk } from '../../redux/auth/authOperations';
 const initialValues = { email: '', password: '' };
 
 export const LoginForm = () => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    // dispatch(logIn(value));
-    // action.resetForm();
+  const handleSubmit = (values, actions) => {
+    dispatch(logInThunk(values))
+      .unwrap()
+      .then(() => navigate('/'));
+    actions.resetForm();
   };
 
   return (
@@ -19,9 +21,7 @@ export const LoginForm = () => {
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form className={s.form}>
           <p className={s.title}>Log In</p>
-          <p className={s.message}>
-            Log in now and get full access to our app.
-          </p>
+          <p className={s.message}>Log in to enjoy full access to our app!</p>
           <label className={s.textInputWrapper}>
             <Field
               className={s.textInput}
