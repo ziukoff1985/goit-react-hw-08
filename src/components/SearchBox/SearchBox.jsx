@@ -1,5 +1,5 @@
-import styles from './SearchBox.module.css'; // Стилі CSS
-import { useDispatch, useSelector } from 'react-redux'; // Хуки для взаємодії з Redux
+import styles from './SearchBox.module.css';
+import { useDispatch, useSelector } from 'react-redux';
 
 // Екшен для оновлення значення фільтру (імені) в Redux-стані.
 import { changeFilter } from '../../redux/filtersSlice';

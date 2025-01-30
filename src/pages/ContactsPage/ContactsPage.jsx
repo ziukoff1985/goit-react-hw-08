@@ -20,7 +20,7 @@ const ContactsPage = () => {
   }, [dispatch]); // Викликається один раз, оскільки `dispatch` стабільний (не змінюється).
 
   return (
-    <div className={s.wrap}>
+    <div className={s.wrap_contacts_page}>
       <Toaster position="top-right" reverseOrder={false} />
       <h1 className="title">Phonebook</h1>
       <ContactForm />
