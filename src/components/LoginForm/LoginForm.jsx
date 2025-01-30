@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import s from './LoginForm.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { logInThunk } from '../../redux/auth/authOperations';
+
 const initialValues = { email: '', password: '' };
 
 export const LoginForm = () => {
@@ -23,11 +24,7 @@ export const LoginForm = () => {
           <p className={s.title}>Log In</p>
           <p className={s.message}>Log in to enjoy full access to our app!</p>
           <label className={s.textInputWrapper}>
-            <Field
-              className={s.textInput}
-              name="email"
-              placeholder="Email"
-            />
+            <Field className={s.textInput} name="email" placeholder="Email" />
           </label>
           <label className={s.textInputWrapper}>
             <Field

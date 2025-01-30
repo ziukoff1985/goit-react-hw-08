@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <header className={s.header}>
-      <h2 className={s.title}>Phonebook</h2>
+      {/* <h2 className={s.title}>Phonebook</h2> */}
       {isLoggedIn && <h2 className={s.title_name}>Welcome, {user.name}</h2>}
       <nav className={s.nav}>
         <NavLink to="/" className={buildLinkClass}>

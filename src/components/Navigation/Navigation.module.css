@@ -1,0 +1,21 @@
+.nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-size: 28px;
+  transition: all 250ms ease-in-out;
+  &:hover {
+    color: rgb(238, 144, 22);
+    scale: 1.1;
+  }
+}
+
+.navActive {
+  color: rgb(238, 167, 74);
+  text-decoration: underline;
+}
