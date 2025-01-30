@@ -22,7 +22,7 @@ export const LoginForm = () => {
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form className={s.form}>
           <p className={s.title}>Log In</p>
-          <p className={s.message}>Log in to enjoy full access to our app!</p>
+          <p className={s.message}>Log in to access all features!</p>
           <label className={s.textInputWrapper}>
             <Field className={s.textInput} name="email" placeholder="Email" />
           </label>
@@ -38,7 +38,7 @@ export const LoginForm = () => {
             Submit
           </button>
           <p>
-            Do not have account?{' '}
+            No account yet?{' '}
             <Link className={s.link} to="/register">
               Lets create one!
             </Link>

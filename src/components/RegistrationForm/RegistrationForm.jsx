@@ -26,9 +26,7 @@ export const RegistrationForm = () => {
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form className={s.form}>
           <p className={s.title}>Register </p>
-          <p className={s.message}>
-            Create an account to unlock all features of our app!
-          </p>
+          <p className={s.message}>Create an account for full access!</p>
           <label className={s.textInputWrapper}>
             <Field
               className={s.textInput}
@@ -38,11 +36,7 @@ export const RegistrationForm = () => {
             />
           </label>
           <label className={s.textInputWrapper}>
-            <Field
-              className={s.textInput}
-              name="email"
-              placeholder="Email"
-            />
+            <Field className={s.textInput} name="email" placeholder="Email" />
           </label>
           <label className={s.textInputWrapper}>
             <Field
@@ -56,9 +50,9 @@ export const RegistrationForm = () => {
             Submit
           </button>
           <p>
-            You already have account?{' '}
+            Already have an account?{' '}
             <Link className={s.link} to="/login">
-              Login!
+              Log in here!
             </Link>
           </p>
         </Form>
