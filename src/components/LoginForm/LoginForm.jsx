@@ -25,7 +25,6 @@ export const LoginForm = () => {
           <label className={s.textInputWrapper}>
             <Field
               className={s.textInput}
-              //   type="email"
               name="email"
               placeholder="Email"
             />

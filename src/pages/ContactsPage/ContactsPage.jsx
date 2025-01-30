@@ -4,20 +4,25 @@ import ContactList from '../../components/ContactList/ContactList';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import s from './ContactsPage.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsError, selectIsLoading } from '../../redux/selectors';
+
 import Error from '../../components/Error/Error';
 import Loader from '../../components/Loader/Loader';
-import { fetchContactsThunk } from '../../redux/contactsOps';
+
 import { useEffect } from 'react';
+import { fetchContactsThunk } from '../../redux/contacts/contactsOperations';
+import {
+  selectIsError,
+  selectIsLoading,
+} from '../../redux/contacts/contactsSelectors';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
-  const isError = useSelector(selectIsError); // Cтан помилки
-  const isLoading = useSelector(selectIsLoading); // Cтан завантаження
+  const isError = useSelector(selectIsError);
+  const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
-    dispatch(fetchContactsThunk()); // Виклик операції для завантаження списоку контактів із сервера (наявних)
-  }, [dispatch]); // Викликається один раз, оскільки `dispatch` стабільний (не змінюється).
+    dispatch(fetchContactsThunk());
+  }, [dispatch]);
 
   return (
     <div className={s.wrap_contacts_page}>

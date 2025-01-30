@@ -1,18 +1,13 @@
-// configureStore - функція для створення Redux-стору
 import { configureStore } from '@reduxjs/toolkit';
 
-// Ред'юсер для контактів
-import { contactsReducer } from './contactsSlice';
-
-// Ред'юсер для фільтрів
-import { filtersReducer } from './filtersSlice';
 import { authReducer } from './auth/authSlice';
+import { contactsReducer } from './contacts/contactsSlice';
+import { filtersReducer } from './filters/filtersSlice';
 
-// Створення Redux store з підключенням редюсерів
 export const store = configureStore({
   reducer: {
-    contacts: contactsReducer, // Редюсер для управління станом контактів
-    filters: filtersReducer, // Редюсер для управління станом фільтру
+    contacts: contactsReducer,
+    filters: filtersReducer,
     auth: authReducer,
   },
 });
