@@ -12,7 +12,6 @@ export const fetchContactsThunk = createAsyncThunk(
       const response = await goitApi.get('/contacts');
       return response.data;
     } catch (error) {
-      // toast.error('Something went wrong 🤦‍♂️, try again...');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
