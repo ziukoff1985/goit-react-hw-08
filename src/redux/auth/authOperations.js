@@ -64,9 +64,7 @@ export const refreshUserThunk = createAsyncThunk(
   async (_, thunkAPI) => {
     const savedToken = thunkAPI.getState().auth.token;
     if (savedToken === null) {
-      return thunkAPI.rejectWithValue(
-        toast.error('Token is not exist 🤦‍♂️, please log in!')
-      );
+      return thunkAPI.rejectWithValue('Token is not exist');
     }
     setAuthHeader(savedToken);
     try {

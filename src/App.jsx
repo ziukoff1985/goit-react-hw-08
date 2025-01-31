@@ -11,6 +11,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { refreshUserThunk } from './redux/auth/authOperations';
 import { useEffect } from 'react';
 import { selectIsRefrishing } from './redux/auth/authSelectors';
+import PrivateRoute from './components/Routes/PrivateRoute';
+import RestrictedRoute from './components/Routes/RestrictedRoute';
 
 function App() {
   const dispatch = useDispatch();
@@ -25,11 +27,32 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="/contacts" element={<ContactsPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegistrationPage />} />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute>
+                <ContactsPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute>
+                <LoginPage />
+              </RestrictedRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute>
+                <RegistrationPage />
+              </RestrictedRoute>
+            }
+          />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
-        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );

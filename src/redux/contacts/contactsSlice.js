@@ -4,6 +4,7 @@ import {
   deleteContactThunk,
   fetchContactsThunk,
 } from './contactsOperations';
+import { logOutThunk } from '../auth/authOperations';
 
 const contactsSlice = createSlice({
   name: 'contacts',
@@ -29,6 +30,11 @@ const contactsSlice = createSlice({
         state.items = state.items.filter(item => item.id !== action.payload.id);
         state.isLoading = false;
         state.isError = false;
+      })
+      .addCase(logOutThunk.fulfilled, state => {
+        state.items = [];
+        state.isLoading = false;
+        state.isError = null;
       })
       .addMatcher(
         isAnyOf(
