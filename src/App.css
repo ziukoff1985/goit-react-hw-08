@@ -16,9 +16,9 @@
     font-size: 36px;
   }
 
-  #root {
+  /* #root {
     padding: 150px 0 0;
-  }
+  } */
 }
 
 @media (max-width: 840px) {
@@ -26,7 +26,7 @@
     font-size: 36px;
   }
 
-  #root {
+  /* #root {
     padding: 200px 0 0;
-  }
+  } */
 }

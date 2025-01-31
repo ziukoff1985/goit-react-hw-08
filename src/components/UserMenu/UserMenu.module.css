@@ -28,3 +28,9 @@
   color: #ffffff;
   font-weight: normal;
 }
+
+@media (max-width: 840px) {
+  .userMenu {
+    flex-direction: column;
+  }
+}

@@ -15,8 +15,10 @@ export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter], // Вхідні селектори.
   (contacts, nameFilter) => {
     // Фільтруємо контакти на основі введеного фільтру.
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(nameFilter.toLowerCase())
+    return contacts.filter(
+      contact =>
+        contact.name.toLowerCase().includes(nameFilter.toLowerCase()) || // фільтруємо по імені
+        contact.number.includes(nameFilter) // фільтруємо по номеру
     );
   }
 );
