@@ -6,10 +6,12 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import Layout from './components/Layout/Layout';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
     <>
+      <Toaster position="top-center" reverseOrder={false} />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />

@@ -35,16 +35,13 @@
   height: 28px;
 }
 
-.deleteButton {
-  /* color: rgb(255, 255, 255);
-    border-radius: 8px;
-    border: none;
-    padding: 20px 20px;
-    font-size: 24px;
-    font-weight: 500;
-    background-color: #5355fd;
-    cursor: pointer; */
-  /* height: 40px; */
+.buttonWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button {
   cursor: pointer;
   border: none;
 

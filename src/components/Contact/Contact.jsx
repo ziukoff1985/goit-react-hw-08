@@ -22,13 +22,14 @@ const Contact = ({ name, number, id }) => {
           {number}
         </p>
       </div>
-      <button
-        className={styles.deleteButton}
-        type="button"
-        onClick={handleDelete}
-      >
-        Delete
-      </button>
+      <div className={styles.buttonWrap}>
+        <button className={styles.button} type="button" onClick={handleDelete}>
+          Delete
+        </button>
+        <button className={styles.button} type="button">
+          Edit
+        </button>
+      </div>
     </li>
   );
 };
