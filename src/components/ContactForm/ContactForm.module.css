@@ -4,14 +4,14 @@
   /* width: 500px; */
   width: 100%;
   max-width: 500px;
-  border-radius: 10px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   padding: 20px;
   background-color: transparent;
   backdrop-filter: blur(10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 -5px 15px rgba(0, 0, 0, 0.1),
-    10px 0 15px rgba(0, 0, 0, 0.15), -10px 0 15px rgba(0, 0, 0, 0.15); /* Тінь по краях */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 -5px 15px rgba(0, 0, 0, 0.3),
+    15px 0 20px rgba(0, 0, 0, 0.35), -15px 0 20px rgba(0, 0, 0, 0.35); /* Тінь по краях */
 }
 
 .label {

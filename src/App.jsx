@@ -7,9 +7,19 @@ import Layout from './components/Layout/Layout';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import { Toaster } from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
+import { refreshUserThunk } from './redux/auth/authOperations';
+import { useEffect } from 'react';
+import { selectIsRefrishing } from './redux/auth/authSelectors';
 
 function App() {
-  return (
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefrishing);
+  useEffect(() => {
+    dispatch(refreshUserThunk());
+  }, [dispatch]);
+
+  return isRefreshing ? null : (
     <>
       <Toaster position="top-center" reverseOrder={false} />
       <Routes>
