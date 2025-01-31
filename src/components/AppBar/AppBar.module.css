@@ -7,6 +7,9 @@
   top: 0;
   left: 0;
   width: 100%;
-  align-items: center;
   z-index: 1000;
+  align-items: center;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5),
+    /* основна тінь з більшою інтенсивністю */ 0 12px 24px rgba(0, 0, 0, 0.7),
+    /* додатковий шар для більшого об'єму */ 0 4px 8px rgba(0, 0, 0, 0.1); /* м'яка тінь для ефекту грани */
 }

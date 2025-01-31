@@ -13,7 +13,7 @@
   border-radius: 20px;
   position: relative;
   background-color: #1a1a1a;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.7);
   border: 1px solid #333;
   box-shadow: 0 8px 16px rgb(0, 0, 0), 0 12px 24px rgba(255, 255, 255, 0);
 }
@@ -28,6 +28,10 @@
   cursor: pointer;
   width: fit-content;
   margin: 0 auto;
+  transition: all 250ms ease-in-out;
+  &:hover {
+    background-color: rgb(238, 144, 22);
+  }
 }
 
 .link {
