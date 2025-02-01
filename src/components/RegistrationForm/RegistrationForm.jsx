@@ -1,7 +1,7 @@
 import { Field, Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import s from './RegistrationForm.module.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { registerThunk } from '../../redux/auth/authOperations';
 
 export const RegistrationForm = () => {
@@ -11,13 +11,9 @@ export const RegistrationForm = () => {
     password: '',
   };
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleSubmit = (values, action) => {
-    console.log(values);
-    dispatch(registerThunk(values))
-      .unwrap()
-      .then(() => navigate('/'));
+    dispatch(registerThunk(values));
     action.resetForm();
   };
 
@@ -36,7 +32,13 @@ export const RegistrationForm = () => {
             />
           </label>
           <label className={s.textInputWrapper}>
-            <Field className={s.textInput} name="email" placeholder="Email" />
+            <Field
+              className={s.textInput}
+              type="email"
+              name="email"
+              placeholder="Email"
+              autoComplete="email"
+            />
           </label>
           <label className={s.textInputWrapper}>
             <Field
@@ -44,6 +46,7 @@ export const RegistrationForm = () => {
               type="password"
               name="password"
               placeholder="Password"
+              autoComplete="current-password"
             />
           </label>
           <button className={s.button} type="submit">

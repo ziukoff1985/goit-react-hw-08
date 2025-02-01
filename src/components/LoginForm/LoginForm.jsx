@@ -8,12 +8,9 @@ const initialValues = { email: '', password: '' };
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
 
   const handleSubmit = (values, actions) => {
     dispatch(logInThunk(values));
-    // .unwrap()
-    // .then(() => navigate('/'));
     actions.resetForm();
   };
 
@@ -24,7 +21,13 @@ export const LoginForm = () => {
           <p className={s.title}>Log In</p>
           <p className={s.message}>Log in to access all features!</p>
           <label className={s.textInputWrapper}>
-            <Field className={s.textInput} name="email" placeholder="Email" />
+            <Field
+              className={s.textInput}
+              type="email"
+              name="email"
+              placeholder="Email"
+              autoComplete="email"
+            />
           </label>
           <label className={s.textInputWrapper}>
             <Field
@@ -32,6 +35,7 @@ export const LoginForm = () => {
               type="password"
               name="password"
               placeholder="Password"
+              autoComplete="current-password"
             />
           </label>
           <button className={s.button} type="submit">

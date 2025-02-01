@@ -5,6 +5,12 @@
   justify-content: center;
 }
 
+@media (max-width: 840px) {
+  .wrap {
+    margin-top: 0;
+  }
+}
+
 .form {
   display: flex;
   flex-direction: column;

@@ -8,11 +8,11 @@ const TypingEffectMessageIsLoggedIn = () => {
         text={[
           'Welcome back to your Phonebook App 📱!',
           'You are logged in.',
-          'Enjoy managing your contacts!',
+          'Manage your contacts easily and securely!',
         ]}
         cursor="|"
-        speed={100}
-        eraseSpeed={100}
+        speed={80}
+        eraseSpeed={80}
         typingDelay={0}
         className={styles.typingEffect}
         displayTextRenderer={text => <h1 className={styles.h1}>{text}</h1>}
