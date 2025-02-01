@@ -2,7 +2,7 @@ import { Field, Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import s from './LoginForm.module.css';
 import { Link } from 'react-router-dom';
-import { logInThunk } from '../../redux/auth/authOperations';
+import { logInThunk } from '../../redux/auth/operations';
 
 const initialValues = { email: '', password: '' };
 

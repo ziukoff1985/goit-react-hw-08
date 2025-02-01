@@ -2,7 +2,7 @@ import { Field, Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import s from './RegistrationForm.module.css';
 import { Link } from 'react-router-dom';
-import { registerThunk } from '../../redux/auth/authOperations';
+import { registerThunk } from '../../redux/auth/operations';
 
 export const RegistrationForm = () => {
   const initialValues = {

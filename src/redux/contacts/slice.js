@@ -3,8 +3,8 @@ import {
   addContactThunk,
   deleteContactThunk,
   fetchContactsThunk,
-} from './contactsOperations';
-import { logOutThunk } from '../auth/authOperations';
+} from './operations';
+import { logOutThunk } from '../auth/operations';
 
 const contactsSlice = createSlice({
   name: 'contacts',

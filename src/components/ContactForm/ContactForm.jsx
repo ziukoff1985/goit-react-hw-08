@@ -2,8 +2,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import styles from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
 import { useId } from 'react';
-import { addContactThunk } from '../../redux/contacts/contactsOperations';
-import { FormValidationSchema } from '../../ValidationHelpers/validationHelper';
+import { addContactThunk } from '../../redux/contacts/operations';
+import { FormValidationSchema } from '../../validationHelpers/validationHelper';
 
 const initialValues = { name: '', number: '' };
 

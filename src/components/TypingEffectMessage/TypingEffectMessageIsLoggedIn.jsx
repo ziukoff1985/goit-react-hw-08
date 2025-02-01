@@ -7,8 +7,8 @@ const TypingEffectMessageIsLoggedIn = () => {
       <TypingEffect
         text={[
           'Welcome back to your Phonebook App 📱!',
-          'You are logged in.',
-          'Manage your contacts easily and securely!',
+          'You are logged in ✅',
+          'Manage your contacts easily and securely 🔐',
         ]}
         cursor="|"
         speed={80}

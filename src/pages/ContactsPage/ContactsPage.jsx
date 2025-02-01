@@ -5,10 +5,8 @@ import s from './ContactsPage.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
 import { useEffect } from 'react';
-import { fetchContactsThunk } from '../../redux/contacts/contactsOperations';
-import {
-  selectIsLoading,
-} from '../../redux/contacts/contactsSelectors';
+import { fetchContactsThunk } from '../../redux/contacts/operations';
+import { selectIsLoading } from '../../redux/contacts/selectors';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();

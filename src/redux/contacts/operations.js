@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { goitApi } from '../auth/authOperations';
+import { goitApi } from '../auth/operations';
 import toast from 'react-hot-toast';
 
 // axios.defaults.baseURL = 'https://6790da7baf8442fd7378062a.mockapi.io';

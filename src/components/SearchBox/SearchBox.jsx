@@ -1,8 +1,8 @@
 import styles from './SearchBox.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useId } from 'react';
-import { selectNameFilter } from '../../redux/filters/filtersSelectors';
-import { changeFilter } from '../../redux/filters/filtersSlice';
+import { selectNameFilter } from '../../redux/filters/selectors';
+import { changeFilter } from '../../redux/filters/slice';
 
 const SearchBox = () => {
   const filter = useSelector(selectNameFilter);

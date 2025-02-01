@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import TypingEffectMessageIsLoggedIn from '../../components/TypingEffectMessage/TypingEffectMessageIsLoggedIn';
-import { selectIsLoggedIn } from '../../redux/auth/authSelectors';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import TypingEffectMessageIsLoggedOut from '../../components/TypingEffectMessage/TypingEffectMessageIsLoggedOut';
 
 const HomePage = () => {
