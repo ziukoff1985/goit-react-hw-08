@@ -3,7 +3,7 @@ import styles from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
 import { useId } from 'react';
 import { addContactThunk } from '../../redux/contacts/operations';
-import { FormValidationSchema } from '../../validationHelpers/validationHelper';
+import { FormValidationSchema } from '../../ValidationHelpers/validationHelper';
 
 const initialValues = { name: '', number: '' };
 
