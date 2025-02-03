@@ -21,7 +21,10 @@ export const deleteContactThunk = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await goitApi.delete(`/contacts/${id}`);
-      toast.success('Contact successfully deleted! 👏 !');
+      toast.success('Contact successfully deleted! 👏 !', {
+        duration: 5000,
+        style: { background: 'red', color: 'white' }, // Кастомний стиль
+      });
       return response.data;
     } catch (error) {
       toast.error('Failed to delete contact 🤷‍♂️, Try again...');
@@ -35,7 +38,10 @@ export const addContactThunk = createAsyncThunk(
   async (body, thunkAPI) => {
     try {
       const response = await goitApi.post('/contacts', body);
-      toast.success('Contact successfully added! 👏');
+      toast.success('Contact successfully added! 👏', {
+        duration: 5000,
+        style: { background: 'green', color: 'white' }, // Кастомний стиль
+      });
       return response.data;
     } catch (error) {
       toast.error('Failed to add contact 🤷‍♂️, Try again...');
