@@ -1,41 +1,56 @@
+// 'createSlice' для створення слайсу
+// 'isAnyOf' утиліта - використовується в 'addMatcher' (для групування екшенів)
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+
+// Імпорт асинхронних операцій, створені через 'createAsyncThunk' (з файлу /contacts/operations.js)
 import {
   addContactThunk,
   deleteContactThunk,
   fetchContactsThunk,
 } from './operations';
+
+// Імпорт асинхронної операції logOutThunk (logout користувача) - з файлу /auth/operations.js
 import { logOutThunk } from '../auth/operations';
 
+// Створюємо slice для управління станом контактів
 const contactsSlice = createSlice({
-  name: 'contacts',
+  name: 'contacts', // Ім'я slice
+  // Початковий стан
   initialState: {
-    items: [],
-    isLoading: false,
-    isError: null,
+    items: [], // Початковий стан списку контактів
+    isLoading: false, // Стан завантаження
+    isError: null, // Повідомлення про помилку
   },
-
+  // 'extraReducers' для обробки 'зовнішніх екшенів' з асинхронних операцій
+  // Створених через createAsyncThunk (в файлі /contacts/operations.js)
   extraReducers: builder => {
+    // 'builder' для додавання обробників різних thunk-дій
     builder
+      // Обробка fulfilled-стану запиту для отримання всіх контактів (при рендері ContactsPage)
       .addCase(fetchContactsThunk.fulfilled, (state, action) => {
-        state.items = action.payload;
-        state.isLoading = false;
-        state.isError = false;
+        state.items = action.payload; // Зберігаємо отримані контакти
+        state.isLoading = false; // Оновлення стану завантаження
+        state.isError = false; // Оновлення стану помилки
       })
+      // Обробка fulfilled-стану запиту для додавання нового контакту
       .addCase(addContactThunk.fulfilled, (state, action) => {
-        state.items.push(action.payload);
+        state.items.push(action.payload); // Додаємо новий контакт у список
         state.isLoading = false;
         state.isError = false;
       })
+      // Обробка fulfilled-стану запиту для видалення контакту
       .addCase(deleteContactThunk.fulfilled, (state, action) => {
-        state.items = state.items.filter(item => item.id !== action.payload.id);
+        state.items = state.items.filter(item => item.id !== action.payload.id); // Видаляємо контакт із масиву за його ID
         state.isLoading = false;
         state.isError = false;
       })
+      // Обробка fulfilled-стану для виходу з системи
       .addCase(logOutThunk.fulfilled, state => {
-        state.items = [];
-        state.isLoading = false;
-        state.isError = null;
+        state.items = []; // Очищаємо список контатів в Redux-стані
+        state.isLoading = false; // Оновлення стану завантаження
+        state.isError = null; // Оновлення стану помилки
       })
+      // Використовуємо 'addMatcher' для обробки стану "pending" для всіх асинхронних операцій
       .addMatcher(
         isAnyOf(
           fetchContactsThunk.pending,
@@ -47,6 +62,7 @@ const contactsSlice = createSlice({
           state.isError = false;
         }
       )
+      // Використовуємо 'addMatcher' для обробки стану "rejected" для всіх асинхронних операцій
       .addMatcher(
         isAnyOf(
           fetchContactsThunk.rejected,
@@ -61,4 +77,5 @@ const contactsSlice = createSlice({
   },
 });
 
+// Експортуємо редюсер для використання у store
 export const contactsReducer = contactsSlice.reducer;

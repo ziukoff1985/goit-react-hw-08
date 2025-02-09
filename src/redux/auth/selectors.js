@@ -1,4 +1,4 @@
-// Селектори для отримання частин стану `auth` у Redux
+// ❗❗❗ Селектори для отримання частин стану `auth` у Redux
 
 // Отримуємо дані користувача (name та email) з Redux-стану
 export const selectUser = state => state.auth.user;

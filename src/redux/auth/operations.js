@@ -21,7 +21,7 @@ export const clearAuthHeader = () => {
 
 // Асинхронний thunk для реєстрації нового користувача
 // 'credentials' - об'єкт, який передається у registerThunk та logInThunk під час сабміту форми
-// Він містить дані, які користувач вводить у форму входу чи реєстрації
+// Він містить дані, які користувач вводить у форму входу чи реєстрації (файли LoginForm i RegistrationForm)
 export const registerThunk = createAsyncThunk(
   'auth/register', // Ім'я операції
   async (credentials, thunkAPI) => {

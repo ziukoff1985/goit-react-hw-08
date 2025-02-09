@@ -1,20 +1,24 @@
-import styles from './TypingEffectMessage.module.css';
+// Бібліотека для анімації тексту
 import TypingEffect from 'react-typing-effect';
+import styles from './TypingEffectMessage.module.css';
 
+// Компонент анімації тексту для стану IsLoggedOut
 const TypingEffectMessageIsLoggedOut = () => {
   return (
+    // Обгортка для анімованого тексту
     <div className={styles.typingTextWrap}>
+      {/* Компонент TypingEffect анімує текст по черзі */}
       <TypingEffect
+        // Текст анімації
         text={[
           'Welcome to your Phonebook App 📱',
           'Please Log in 🔑 or Sign up 📑 to get started😉',
         ]}
-        cursor="|"
-        speed={80}
-        eraseSpeed={80}
-        typingDelay={0}
-        className={styles.typingEffect}
-        displayTextRenderer={text => <h1 className={styles.h1}>{text}</h1>}
+        cursor="|" // Символ курсора (|)
+        speed={80} // Швидкість друку символів
+        eraseSpeed={80} // Швидкість видалення символів
+        typingDelay={0} // Затримка перед початком друку
+        className={styles.typingEffect} // Стилі до анімованого тексту
       />
     </div>
   );
