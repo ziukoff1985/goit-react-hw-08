@@ -1,14 +1,18 @@
 // хуки useDispatch, useSelector, useState
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+
 // Селектор для отримання даних користувача
 import { selectUser } from '../../redux/auth/selectors';
+
 // Асинхронна операцію для виходу з акаунту
 import { logOutThunk } from '../../redux/auth/operations';
-// Компонент 'ModalWindow'
 
-import s from './UserMenu.module.css';
+// Компонент модального вікна для підтвердження виходу
 import ModalWindowLogOut from '../ModalWindowLogOut/ModalWindowLogOut';
+
+// Стилі CSS
+import s from './UserMenu.module.css';
 
 // Компонент UserMenu
 const UserMenu = () => {
@@ -16,17 +20,20 @@ const UserMenu = () => {
   const user = useSelector(selectUser);
   // 'Dispatch' для відправки екшену
   const dispatch = useDispatch();
-  // Стан для 'ModalWindow' (open/close)
+  // Стан для 'ModalWindowLogOut' (open/close)
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Функція для відкриття модального вікна
   const showModal = () => {
+    // Встановлюємо 'isModalOpen' у 'true', відкриваючи модальне вікно
     setIsModalOpen(true);
   };
 
   // Функція для виходу з акаунту після підтвердження
   const handleLogOut = () => {
+    // Викликаємо екшен виходу через 'logOutThunk'
     dispatch(logOutThunk());
+    // Встановлюємо 'isModalOpen' у 'false', закриваючи модальне вікно
     setIsModalOpen(false);
   };
 
@@ -35,15 +42,16 @@ const UserMenu = () => {
       <div className={s.userMenu}>
         {/* Відображаємо ім'я користувача */}
         <span className={s.userName}>Welcome, {user.name}</span>
-        {/* Кнопка для виходу з акаунту */}
+        {/* Кнопка 'Log out' для відкриття модального вікна виходу */}
         <button onClick={showModal} className={s.button}>
           Log out
         </button>
+        {/* Модальне вікно для підтвердження виходу */}
         <div>
           <ModalWindowLogOut
-            isOpen={isModalOpen}
-            onConfirm={handleLogOut}
-            onCancel={() => setIsModalOpen(false)}
+            isOpen={isModalOpen} // Передаємо стан відкриття
+            onConfirm={handleLogOut} // Функція виходу при підтвердженні
+            onCancel={() => setIsModalOpen(false)} // Закриваємо вікно при скасуванні
           />
         </div>
       </div>
