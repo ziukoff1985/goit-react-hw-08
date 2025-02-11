@@ -6,6 +6,7 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
   addContactThunk,
   deleteContactThunk,
+  editContactThunk,
   fetchContactsThunk,
 } from './operations';
 
@@ -41,6 +42,13 @@ const contactsSlice = createSlice({
       // Обробка fulfilled-стану запиту для видалення контакту
       .addCase(deleteContactThunk.fulfilled, (state, action) => {
         state.items = state.items.filter(item => item.id !== action.payload.id); // Видаляємо контакт із масиву за його ID
+        state.isLoading = false;
+        state.isError = false;
+      })
+      .addCase(editContactThunk.fulfilled, (state, action) => {
+        const contact = state.items.find(item => item.id === action.payload.id);
+        contact.name = action.payload.name;
+        contact.number = action.payload.number;
         state.isLoading = false;
         state.isError = false;
       })

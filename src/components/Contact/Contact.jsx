@@ -43,6 +43,9 @@ const Contact = ({ name, number, id }) => {
         >
           Delete
         </button>
+        <button className={styles.button} type="button">
+          Edit
+        </button>
       </div>
     </li>
   );

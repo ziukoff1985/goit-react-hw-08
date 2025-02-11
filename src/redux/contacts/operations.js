@@ -64,3 +64,17 @@ export const addContactThunk = createAsyncThunk(
     }
   }
 );
+
+export const editContactThunk = createAsyncThunk(
+  'contacts/editContact',
+  async ({ id, editData }, thunkAPI) => {
+    try {
+      const response = await goitApi.patch(`/contacts/${id}`, editData);
+      toast.success('Contact successfully updated! ✨');
+      return response.data;
+    } catch (error) {
+      toast.error('Failed to update contact 🤷‍♂️, Try again...');
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
