@@ -6,8 +6,9 @@ import { selectUser } from '../../redux/auth/selectors';
 // Асинхронна операцію для виходу з акаунту
 import { logOutThunk } from '../../redux/auth/operations';
 // Компонент 'ModalWindow'
-import ModalWindow from '../ModalWindow/ModalWindow';
+
 import s from './UserMenu.module.css';
+import ModalWindowLogOut from '../ModalWindowLogOut/ModalWindowLogOut';
 
 // Компонент UserMenu
 const UserMenu = () => {
@@ -39,7 +40,7 @@ const UserMenu = () => {
           Log out
         </button>
         <div>
-          <ModalWindow
+          <ModalWindowLogOut
             isOpen={isModalOpen}
             onConfirm={handleLogOut}
             onCancel={() => setIsModalOpen(false)}

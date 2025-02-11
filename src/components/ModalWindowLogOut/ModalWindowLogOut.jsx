@@ -1,8 +1,8 @@
 // import { useState } from 'react';
 import { Modal } from 'antd';
-import s from './ModalWindow.module.css';
+import s from './ModalWindowLogOut.module.css';
 
-const ModalWindow = ({ isOpen, onConfirm, onCancel }) => {
+const ModalWindowLogOut = ({ isOpen, onConfirm, onCancel }) => {
   return (
     <>
       <Modal
@@ -17,4 +17,4 @@ const ModalWindow = ({ isOpen, onConfirm, onCancel }) => {
     </>
   );
 };
-export default ModalWindow;
+export default ModalWindowLogOut;

@@ -1,20 +1,37 @@
 import { FaUser, FaPhoneAlt } from 'react-icons/fa'; // Імпортуємо іконки
 import { useDispatch } from 'react-redux'; // 'useDispatch' для відправки екшенів
-
-import styles from './Contact.module.css'; // Стилі CSS
+import { useState } from 'react';
 
 // Асинхронна операція для видалення контакту (з файлу /contacts/operations.js)
-import { deleteContactThunk } from '../../redux/contacts/operations';
+import {
+  deleteContactThunk,
+  editContactThunk,
+} from '../../redux/contacts/operations';
+
+import styles from './Contact.module.css'; // Стилі CSS
+import ModalWindowEditContact from '../ModalWindowEditContact/ModalWindowEditContact';
 
 // Компонент для відображення одного контакту
 const Contact = ({ name, number, id }) => {
   // 'Dispatch' для відправки екшену
   const dispatch = useDispatch();
+  const [isEditing, setIsEditing] = useState(false);
 
   // Функція-обробник для видалення контакту
   const handleDelete = () => {
     // Виклик deleteContactThunk з переданим id контакту
     dispatch(deleteContactThunk(id));
+  };
+
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+
+  const handleSave = (newName, newNumber) => {
+    dispatch(
+      editContactThunk({ id, editData: { name: newName, number: newNumber } })
+    );
+    setIsEditing(false);
   };
 
   return (
@@ -43,10 +60,18 @@ const Contact = ({ name, number, id }) => {
         >
           Delete
         </button>
-        <button className={styles.button} type="button">
+        <button className={styles.button} type="button" onClick={handleEdit}>
           Edit
         </button>
       </div>
+      {/* Модальне вікно Material-UI */}
+      <ModalWindowEditContact
+        open={isEditing}
+        name={name}
+        number={number}
+        onSave={handleSave}
+        onClose={() => setIsEditing(false)}
+      />
     </li>
   );
 };

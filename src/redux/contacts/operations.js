@@ -65,6 +65,7 @@ export const addContactThunk = createAsyncThunk(
   }
 );
 
+// Операція для редагування контакту (name, number)
 export const editContactThunk = createAsyncThunk(
   'contacts/editContact',
   async ({ id, editData }, thunkAPI) => {
