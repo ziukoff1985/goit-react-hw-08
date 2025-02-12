@@ -23,7 +23,7 @@ const ModalWindowLogOut = ({
         onCancel={onCancel} // Закриває модальне вікно при натисканні "Cancel"
       >
         {/* Повідомлення у вікні */}
-        <p className={s.message}>Are you sure want to quit the App😕?</p>
+        <p className={s.message}>Do you really want to quit the app? 😕</p>
       </Modal>
     </>
   );
