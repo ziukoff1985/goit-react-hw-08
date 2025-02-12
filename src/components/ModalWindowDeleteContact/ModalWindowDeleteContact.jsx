@@ -23,7 +23,7 @@ const ModalWindowDeleteContact = ({
         onCancel={onClose} // Закриває модальне вікно при натисканні "Cancel"
       >
         {/* Повідомлення у вікні */}
-        <p className={s.message}>Are you sure want to delete the contact?</p>
+        <p className={s.message}>Do you really want to delete this contact?</p>
       </Modal>
     </>
   );
