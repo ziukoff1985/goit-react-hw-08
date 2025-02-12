@@ -21,11 +21,14 @@ export default function ModalWindowEditContact({
   // Локальний стан для редагованих даних контакту (name і number)
   const [newName, setNewName] = useState(name);
   const [newNumber, setNewNumber] = useState(number);
+
+  // Локальні стани для ErrorSnackbar:
+  // - повідомлення про помилку (errorMessage)
+  // - відкриття сповіщення про помилку (openSnackbar)
   const [errorMessage, setErrorMessage] = useState('');
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
-  // Оновлюємо локальний стан, якщо змінюється передане значення 'name' або 'number'
-  // Також оновлюємо локальний стан щоразу при відкритті модального вікна
+  // Оновлюємо локальний стан щоразу при відкритті модального вікна (open) або зміні значення 'name' або 'number'
   useEffect(() => {
     if (open) {
       setNewName(name);
@@ -36,13 +39,18 @@ export default function ModalWindowEditContact({
   // Функція-обробник відправки форми
   const handleSubmit = event => {
     event.preventDefault();
+    // Перевіряємо, чи поля не порожні
     if (newName.trim() === '' || newNumber.trim() === '') {
+      // Встановлюємо повідомлення про помилку
       setErrorMessage('Both fields are required!');
+      // Відкриваємо сповіщення про помилку
       setOpenSnackbar(true);
       return;
     }
     // Передаємо оновлені дані контакту у функцію 'onSave'
     onSave(newName, newNumber);
+    // Закриваємо модалку після збереження змін в контакті
+    onClose();
   };
 
   return (
@@ -93,10 +101,11 @@ export default function ModalWindowEditContact({
           </Button>
         </DialogActions>
       </Dialog>
+      {/* Сповіщення про помилку */}
       <ErrorSnackbar
-        open={openSnackbar}
-        message={errorMessage}
-        onClose={() => setOpenSnackbar(false)}
+        open={openSnackbar} // Стан відкриття сповіщення
+        message={errorMessage} // Текст помилки
+        onClose={() => setOpenSnackbar(false)} // Функція для закриття сповіщення
       />
     </>
   );

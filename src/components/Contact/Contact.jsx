@@ -8,26 +8,37 @@ import {
   editContactThunk,
 } from '../../redux/contacts/operations';
 
-// Компонент модального вікна для редагування контакту
+// Компоненти модальних вікон для редагування та видалення контакту
 import ModalWindowEditContact from '../ModalWindowEditContact/ModalWindowEditContact';
+import ModalWindowDeleteContact from '../ModalWindowDeleteContact/ModalWindowDeleteContact';
 
 // Стилі CSS
 import styles from './Contact.module.css';
 
 // Компонент 'Contact' відображає один контакт у списку
+// Викликається в ContactList.jsx + Пропси
 const Contact = ({ name, number, id }) => {
   // 'Dispatch' для відправки екшенів до Redux
   const dispatch = useDispatch();
-  // Стан, який контролює відкриття та закриття модального вікна редагування
+  // Стан, який контролює відкриття та закриття модального вікна редагування контакту
   const [isEditing, setIsEditing] = useState(false);
 
-  // Функція-обробник для видалення контакту
+  // Стан, який контролює відкриття та закриття модального вікна видалення контакту
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  // Функція-обробник для відкриття модального вікна видалення контакту
   const handleDelete = () => {
-    // Виклик deleteContactThunk з переданим id контакту
-    dispatch(deleteContactThunk(id));
+    setIsDeleting(true);
   };
 
-  // Функція-обробник для відкриття модального вікна редагування
+  // Функція-обробник для підтвердження видалення контакту
+  const handleDeleteConfirm = () => {
+    // Виклик deleteContactThunk з переданим id контакту
+    dispatch(deleteContactThunk(id));
+    setIsDeleting(false); // Закриваємо модалку після відправки запиту на видалення
+  };
+
+  // Функція-обробник для відкриття модального вікна редагування контакту
   const handleEdit = () => {
     // Встановлюємо 'isEditing' у 'true', відкриваючи модальне вікно
     setIsEditing(true);
@@ -39,7 +50,7 @@ const Contact = ({ name, number, id }) => {
     dispatch(
       editContactThunk({ id, editData: { name: newName, number: newNumber } })
     );
-    // Встановлюємо 'isEditing' у 'false', закриваючи модальне вікно після збереження
+    // Встановлюємо 'isEditing' у 'false', закриваючи модальне вікно після зміни даних
     setIsEditing(false);
   };
 
@@ -86,6 +97,12 @@ const Contact = ({ name, number, id }) => {
         number={number} // Передаємо поточний номер телефону
         onSave={handleSave} // Викликається при збереженні змін
         onClose={() => setIsEditing(false)} // Закриває модальне вікно при закритті
+      />
+      {/* Модальне вікно видалення контакту */}
+      <ModalWindowDeleteContact
+        isOpen={isDeleting} // Відкривається при 'isDeleting === true'
+        onDelete={handleDeleteConfirm} // Викликається при підтвердженні видалення
+        onClose={() => setIsDeleting(false)} // Закриває модальне вікно при скасуванні (Cancel)
       />
     </li>
   );

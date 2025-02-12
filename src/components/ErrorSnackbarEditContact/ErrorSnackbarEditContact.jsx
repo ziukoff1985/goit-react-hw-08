@@ -1,7 +1,14 @@
+// Компоненти Snackbar і Alert з бібліотеки Ant Design
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 
-export default function ErrorSnackbar({ open, message, onClose }) {
+// Компонент для відображення повідомлення про помилку у вигляді спливаючого вікна (Snackbar)
+// Викликається в ModalWindowEditContact.jsx + Пропси
+export default function ErrorSnackbar({
+  open, // Стан відкриття сповіщення
+  message, // Текст помилки
+  onClose, // Функція для закриття сповіщення
+}) {
   return (
     <Snackbar
       open={open}
