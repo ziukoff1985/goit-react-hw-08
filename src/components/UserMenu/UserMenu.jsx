@@ -1,6 +1,8 @@
 // хуки useDispatch, useSelector, useState
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+// Компонент Spoiler, який приховує або відкриває свій вміст при кліку або наведенні
+import { Spoiler } from 'spoiled';
 
 // Селектор для отримання даних користувача
 import { selectUser } from '../../redux/auth/selectors';
@@ -42,10 +44,13 @@ const UserMenu = () => {
       <div className={s.userMenu}>
         {/* Відображаємо ім'я користувача */}
         <span className={s.userName}>Welcome, {user.name}</span>
-        {/* Кнопка 'Log out' для відкриття модального вікна виходу */}
-        <button onClick={showModal} className={s.button}>
-          Log out
-        </button>
+        {/* Компонент Spoiler, який приховує або відкриває свій вміст при кліку або наведенні.*/}
+        <Spoiler>
+          {/* Кнопка 'Log out' для відкриття модального вікна виходу */}
+          <button onClick={showModal} className={s.button}>
+            Log out
+          </button>
+        </Spoiler>
         {/* Модальне вікно для підтвердження виходу */}
         <div>
           <ModalWindowLogOut
