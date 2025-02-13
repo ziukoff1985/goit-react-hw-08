@@ -14,7 +14,7 @@ const ModalWindowDeleteContact = ({
   return (
     <>
       <Modal
-        title="❗❗❗ Warning ❗❗❗" // Заголовок модального вікна
+        title="⚠ Warning" // Заголовок модального вікна
         open={isOpen} // Визначає, чи відкрите вікно
         onOk={() => {
           onDelete(); // Викликаємо функцію видалення контакту

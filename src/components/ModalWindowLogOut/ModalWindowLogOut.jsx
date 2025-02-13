@@ -14,7 +14,7 @@ const ModalWindowLogOut = ({
   return (
     <>
       <Modal
-        title="❗❗❗ Log Out ❗❗❗" // Заголовок модального вікна
+        title="⚠ Log Out" // Заголовок модального вікна
         open={isOpen} // Визначає, чи відкрите вікно
         onOk={() => {
           onConfirm(); // Викликаємо функцію виходу

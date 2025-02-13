@@ -42,7 +42,7 @@ export default function ModalWindowEditContact({
     // Перевіряємо, чи поля не порожні
     if (newName.trim() === '' || newNumber.trim() === '') {
       // Встановлюємо повідомлення про помилку
-      setErrorMessage('Both fields are required!');
+      setErrorMessage('⚠ Warning! Both fields are required!');
       // Відкриваємо сповіщення про помилку
       setOpenSnackbar(true);
       return;
