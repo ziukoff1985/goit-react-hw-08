@@ -1,3 +1,9 @@
+html {
+  /* Додаємо це значення */
+  /*scrollbar-gutter властивість, яка дозволяє встановити режим відображення скролбара, щоб він був стабільним і не викликав стрибків фону при прокрутці.*/
+  scrollbar-gutter: stable;
+}
+
 body {
   background: url('/bg.jpg') no-repeat;
   background-size: cover;
