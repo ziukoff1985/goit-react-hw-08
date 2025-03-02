@@ -10,6 +10,7 @@ const Error = () => {
   const hasToastShown = useRef(false);
 
   // 'useEffect' після рендеру компонента.
+  // Викликається лише один раз після першого рендеру.
   useEffect(() => {
     if (!hasToastShown.current) {
       // Якщо сповіщення ще не було показано:
