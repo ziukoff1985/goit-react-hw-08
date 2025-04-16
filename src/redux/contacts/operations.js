@@ -24,7 +24,7 @@ export const fetchContactsThunk = createAsyncThunk(
 // Операція для видалення контакту
 export const deleteContactThunk = createAsyncThunk(
   'contacts/deleteContact', // Ім'я операції
-  // id - ідентифікатор контакту, який потрібно видалити
+  // id - ідентифікатор контакту, який потрібно видалити -> приходить з компонента Contact.jsx
   async (id, thunkAPI) => {
     try {
       // Виконуємо DELETE-запит до API
@@ -46,7 +46,8 @@ export const deleteContactThunk = createAsyncThunk(
 // Операція для додавання контакту
 export const addContactThunk = createAsyncThunk(
   'contacts/addNewContact', // Ім'я операції
-  // body - дані нового контакту
+  // body - дані нового контакту - приходять з компонента ContactForm.jsx
+  // thunkAPI - об'єкт, що надає методи для управління станом Redux
   async (body, thunkAPI) => {
     try {
       // Виконуємо POST-запит до API
@@ -67,7 +68,9 @@ export const addContactThunk = createAsyncThunk(
 
 // Операція для редагування контакту (name, number)
 export const editContactThunk = createAsyncThunk(
-  'contacts/editContact',
+  'contacts/editContact', // Ім'я операції
+  // id - ідентифікатор контакту, який потрібно редагувати -> приходить з компонента Contact.jsx
+  // editData - дані для редагування контакту -> приходять з компонента ContactForm.jsx
   async ({ id, editData }, thunkAPI) => {
     try {
       const response = await goitApi.patch(`/contacts/${id}`, editData);

@@ -33,7 +33,7 @@ const Contact = ({ name, number, id }) => {
 
   // Функція-обробник для підтвердження видалення контакту
   const handleDeleteConfirm = () => {
-    // Виклик deleteContactThunk з переданим id контакту
+    // Виклик deleteContactThunk (з файлу /contacts/operations.js) з переданим id контакту
     dispatch(deleteContactThunk(id));
     setIsDeleting(false); // Закриваємо модалку після відправки запиту на видалення
   };
@@ -46,7 +46,7 @@ const Contact = ({ name, number, id }) => {
 
   // Функція-обробник для збереження змінених даних контакту
   const handleSave = (newName, newNumber) => {
-    // Викликаємо 'editContactThunk', передаючи 'id' контакту та нові дані
+    // Викликаємо editContactThunk (з файлу /contacts/operations.js), передаючи 'id' контакту та нові дані
     dispatch(
       editContactThunk({ id, editData: { name: newName, number: newNumber } })
     );

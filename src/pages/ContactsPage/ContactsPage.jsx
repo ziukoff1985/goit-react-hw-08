@@ -27,7 +27,8 @@ const ContactsPage = () => {
   const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
-    // Викликаємо операцію отримання контактів при завантаженні сторінки
+    // Викликаємо операцію отримання контактів при завантаженні сторінки fetchContactsThunk (з файлу /contacts/operations)
+    // 'dispatch' - відправляє асинхронну дію для отримання контактів
     dispatch(fetchContactsThunk());
   }, [dispatch]); // Залежність dispatch
 

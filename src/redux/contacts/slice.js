@@ -28,23 +28,29 @@ const contactsSlice = createSlice({
     // 'builder' для додавання обробників різних thunk-дій
     builder
       // Обробка fulfilled-стану запиту для отримання всіх контактів (при рендері ContactsPage)
+      // 'fetchContactsThunk' - з файла /contacts/operations.js
+      // 'addCase' - для обробки конкретного екшену
       .addCase(fetchContactsThunk.fulfilled, (state, action) => {
         state.items = action.payload; // Зберігаємо отримані контакти
         state.isLoading = false; // Оновлення стану завантаження
         state.isError = false; // Оновлення стану помилки
       })
       // Обробка fulfilled-стану запиту для додавання нового контакту
+      // 'addContactThunk' - з файлу /contacts/operations.js
       .addCase(addContactThunk.fulfilled, (state, action) => {
         state.items.push(action.payload); // Додаємо новий контакт у список
         state.isLoading = false;
         state.isError = false;
       })
       // Обробка fulfilled-стану запиту для видалення контакту
+      // 'deleteContactThunk' - з файлу /contacts/operations.js
       .addCase(deleteContactThunk.fulfilled, (state, action) => {
         state.items = state.items.filter(item => item.id !== action.payload.id); // Видаляємо контакт із масиву за його ID
         state.isLoading = false;
         state.isError = false;
       })
+      // Обробка fulfilled-стану запиту для редагування контакту
+      // 'editContactThunk' - з файлу /contacts/operations.js
       .addCase(editContactThunk.fulfilled, (state, action) => {
         const contact = state.items.find(item => item.id === action.payload.id);
         contact.name = action.payload.name;
