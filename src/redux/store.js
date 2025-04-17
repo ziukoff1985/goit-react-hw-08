@@ -25,7 +25,7 @@ import storage from 'redux-persist/lib/storage';
 const persistConfig = {
   key: 'auth-data', // Ключ для збереження стану в localStorage
   version: 1, // Версія збереженого стану
-  whitelist: ['token'], // Визначає, які поля з `authReducer` потрібно зберігати
+  whitelist: ['token'], // Визначає, які поля з `authReducer` потрібно зберігати -> у нас `token` зберігається за допомогою `redux-persist` у `localStorage`
   storage, // Використовуємо `localStorage` для збереження
 };
 
@@ -37,7 +37,7 @@ export const store = configureStore({
   reducer: {
     contacts: contactsReducer, // Редюсер для контактів
     filters: filtersReducer, // Редюсер для фільтрів
-    auth: persistedReducer, // Редюсер для контактів, для авторизації, ❗❗❗ який зберігає дані у локальному сховищі
+    auth: persistedReducer, // Редюсер для авторизації, ❗❗❗ який зберігає дані у локальному сховищі
   },
   // Налаштовуємо 'middleware' для Redux store, щоб ігнорувати певні дії redux-persist, з бібліотеки!!!
   middleware: getDefaultMiddleware =>

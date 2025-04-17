@@ -23,7 +23,7 @@ const initialState = {
 // Створюємо slice для аутентифікації
 const authSlice = createSlice({
   name: 'auth', // Назва слайсу
-  initialState, // Початковий стан, визначений вище
+  initialState, // Початковий стан, визначений вище в цьому файлі
   // 'extraReducers' для обробки 'зовнішніх екшенів' з асинхронних операцій
   // Створені через createAsyncThunk (з файлу auth/operations)
   extraReducers: builder => {
