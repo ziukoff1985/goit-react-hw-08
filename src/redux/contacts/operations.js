@@ -24,7 +24,7 @@ export const fetchContactsThunk = createAsyncThunk(
 // Операція для видалення контакту
 export const deleteContactThunk = createAsyncThunk(
   'contacts/deleteContact', // Ім'я операції
-  // id - ідентифікатор контакту, який потрібно видалити -> приходить з компонента Contact.jsx
+  // id (payload) - ідентифікатор контакту, який потрібно видалити -> приходить з компонента Contact.jsx
   async (id, thunkAPI) => {
     try {
       // Виконуємо DELETE-запит до API
