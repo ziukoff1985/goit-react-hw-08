@@ -20,7 +20,7 @@ export const LoginForm = () => {
   const handleSubmit = (values, actions) => {
     // Викликаємо logInThunk з даними форми
     dispatch(logInThunk(values));
-    actions.resetForm();
+    actions.resetForm(); // Скидаємо форму після відправки
   };
 
   return (
