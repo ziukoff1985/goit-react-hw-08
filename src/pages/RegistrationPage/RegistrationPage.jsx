@@ -1,7 +1,7 @@
 // Компонент форми реєстрації
 import { RegistrationForm } from '../../components/RegistrationForm/RegistrationForm';
 
-// Сторінка реєстрації
+// Компонент сторінки реєстрації
 const RegistrationPage = () => {
   return (
     <div>
